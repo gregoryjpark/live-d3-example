@@ -1,0 +1,14 @@
+<div class="main-container">
+  <h1>Red vs. Blue</h1>
+  
+  <div id="vote-counter">
+    <h3>Vote count</h3> 
+    <p>Red: <span id="red-count"><%= @votes[0] %></span></p>
+    <p>Blue: <span id="blue-count"><%= @votes[1] %></span></p>
+  </div>
+
+  <div id="voting-box">
+    <%= link_to 'Vote Red', votes_path(vote: {color: 'red'}), {remote: true, method: :post, class: 'vote-button red' } %>
+    <%= link_to 'Vote Blue', votes_path(vote: {color: 'blue'}), {remote: true, method: :post, class: 'vote-button blue' } %>
+  </div>
+</div>
