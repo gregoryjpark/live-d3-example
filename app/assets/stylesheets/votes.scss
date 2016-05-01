@@ -1,0 +1,65 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.main-container {
+  text-align: center;
+}
+
+#vote-counter {
+  p {
+    display: inline-block;
+    padding: 0 40px 0 40px;
+  }
+}
+
+#plot-container {
+  border: 1px solid black;
+  width: 300px;
+  margin: 0 auto;
+}
+
+svg#plot {
+  width: 300px;
+  height: 500px;
+}
+
+#voting-box {
+  text-align: center;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.vote-button {
+  display: inline-block;
+  text-align: center;
+  height: 130px;
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid black;
+  color: white;
+  font-size: 40px;
+  padding-top: 30px;
+  text-decoration: none;
+
+
+  &.blue {
+    background: blue;
+    &:hover {
+      background: dodgerblue;
+    }
+    &:active {
+      background: black;
+    }
+  }
+
+  &.red {
+    background: red;
+    &:hover {
+      background: salmon;
+    }
+    &:active {
+      background: black;
+    }
+  }
+}
