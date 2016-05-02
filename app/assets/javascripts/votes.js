@@ -22,7 +22,7 @@ var updateData = function(){
                     url: '/votes',
                     dataType: 'json',
                     success: function(data){
-                      updateBarPlot(data);
+                      updatePage(data);
                     },
                     failure: function(result){
                       error();
@@ -82,7 +82,22 @@ function updateBarPlot(data){
     });
 }
 
+// update vote counters 
+function updateVoteCounters(data){
+  $("#red-count").html(data[0]);
+  $("#blue-count").html(data[1]);
+}
+
+// update page (plot and counters)
+function updatePage(data){
+  updateBarPlot(data);
+  updateVoteCounters(data);
+}
+
 // load data on page load
 $(document).ready(function(){ 
-  loadData(); 
+  loadData();
+  setInterval(function(){
+    updateData();
+  }, 3000); 
 });
