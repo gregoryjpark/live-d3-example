@@ -65,6 +65,23 @@ function drawBarPlot(data){
     });
 }
 
+// define updateBarPlot() function
+function updateBarPlot(data){
+  
+  var yScale = d3.scale.linear()
+                 .domain([0, d3.max(data)])
+                 .range([0, (plotHeight - 50)]);
+
+  d3.select("#plot")
+    .selectAll("rect")
+    .data(data)
+    .transition()
+    .attr("height", function(d){ return yScale(d); })
+    .attr("y", function(d){
+        return plotHeight - yScale(d);
+    });
+}
+
 // load data on page load
 $(document).ready(function(){ 
   loadData(); 
