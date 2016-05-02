@@ -1,9 +1,7 @@
 class VotesController < ApplicationController
 
   def index
-    @vote = Vote.new
     @votes = Vote.totals
-
   end
 
   def create
