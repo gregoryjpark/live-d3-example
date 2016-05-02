@@ -14,6 +14,22 @@ var loadData = function(){
                 });
               };
 
+// ajax call to get fresh json
+var updateData = function(){
+                  $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    url: '/votes',
+                    dataType: 'json',
+                    success: function(data){
+                      updateBarPlot(data);
+                    },
+                    failure: function(result){
+                      error();
+                    }
+                  });
+                };
+
 function error() {
     console.log("Something went wrong!");
 }
