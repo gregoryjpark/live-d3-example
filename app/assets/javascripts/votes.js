@@ -14,6 +14,10 @@ var loadData = function(){
                 });
               };
 
+function error() {
+    console.log("Something went wrong!");
+}
+
 // set plot parameters
 var barWidth = 20;
 var colors = ['red', 'blue'];
