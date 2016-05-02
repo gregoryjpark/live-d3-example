@@ -1,9 +1,12 @@
 class VotesController < ApplicationController
 
   def index
-    @vote = Vote.new
     @votes = Vote.totals
 
+    respond_to do |format|
+      format.html
+      format.json { render json: @votes }
+    end
   end
 
   def create

@@ -11,4 +11,8 @@
     <%= link_to 'Vote Red', votes_path(vote: {color: 'red'}), {remote: true, method: :post, class: 'vote-button red' } %>
     <%= link_to 'Vote Blue', votes_path(vote: {color: 'blue'}), {remote: true, method: :post, class: 'vote-button blue' } %>
   </div>
+
+  <div id="plot-container">
+    <svg id="plot"></svg>
+  </div>
 </div>
