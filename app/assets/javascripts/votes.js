@@ -14,6 +14,22 @@ var loadData = function(){
                 });
               };
 
+// ajax call to get fresh json
+var updateData = function(){
+                  $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    url: '/votes',
+                    dataType: 'json',
+                    success: function(data){
+                      updateBarPlot(data);
+                    },
+                    failure: function(result){
+                      error();
+                    }
+                  });
+                };
+
 function error() {
     console.log("Something went wrong!");
 }
@@ -46,6 +62,23 @@ function drawBarPlot(data){
     })
     .attr("y", function(d){ 
         return plotHeight - yScale(d); // scale bars within plotting area
+    });
+}
+
+// define updateBarPlot() function
+function updateBarPlot(data){
+  
+  var yScale = d3.scale.linear()
+                 .domain([0, d3.max(data)])
+                 .range([0, (plotHeight - 50)]);
+
+  d3.select("#plot")
+    .selectAll("rect")
+    .data(data)
+    .transition()
+    .attr("height", function(d){ return yScale(d); })
+    .attr("y", function(d){
+        return plotHeight - yScale(d);
     });
 }
 
