@@ -17,7 +17,7 @@ var loadData = function(){
 // set plot parameters
 var barWidth = 20;
 var colors = ['red', 'blue'];
-var plotHeight = 500;
+var plotHeight = 300;
 
 // draw bar plot
 function drawBarPlot(data){
